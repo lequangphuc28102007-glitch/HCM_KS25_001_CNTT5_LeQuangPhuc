@@ -3,7 +3,7 @@ CREATE DATABASE SalesManagement;
 USE SalesManagement;
 
 CREATE TABLE Product(
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(10) PRIMARY KEY ,
     product_name VARCHAR(100),
     brand VARCHAR(100),
     price DECIMAL(18,2),
@@ -11,7 +11,7 @@ CREATE TABLE Product(
 );
 
 CREATE TABLE Customer(
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(10) PRIMARY KEY ,
     full_name VARCHAR(100),
     email VARCHAR(255) UNIQUE,
     phone VARCHAR(10),
@@ -19,16 +19,16 @@ CREATE TABLE Customer(
 );
 
 CREATE TABLE Orders(
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(10) PRIMARY KEY,
     order_date DATE,
     total DECIMAL(18,2),
-    customer_id INT,
+    customer_id VARCHAR(10),
     FOREIGN KEY (customer_id) REFERENCES Customer(id)
 );
 
 CREATE TABLE Order_Detail(
-    order_id INT,
-    product_id INT,
+    order_id VARCHAR(10),
+    product_id VARCHAR(10),
     quantity INT,
     price_current DECIMAL(18,2),
     PRIMARY KEY (order_id, product_id),
